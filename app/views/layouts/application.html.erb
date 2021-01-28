@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>BufferClone</title>
+    <title>Buffer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,8 +18,10 @@
     <%= render partial: "shared/navbar" %>
 
     <div class="container">
+      <%= render partial: "shared/flash" %>
       <%= yield %>
     </div>
+
   </body>
 
 </html>
