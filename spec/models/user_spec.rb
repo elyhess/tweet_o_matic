@@ -1,18 +1,21 @@
-RSpec.describe , type: :model do
-  describe 'validations' do
-    it { should validate_presence_of :}
-  end
+require "rails_helper"
 
-  describe 'relationships' do
-    it {should belong_to :}
-    it {should have_many :}
-  end
+RSpec.describe User, type: :model do
+describe 'validations' do
+	it { should validate_presence_of :email }
+	it { should validate_presence_of :password }
+end
 
-  describe 'instance methods' do
-  end
+describe 'relationships' do
+	# it { should belong_to : }
+	# it { should have_many : }
+end
 
-  describe 'class methods' do 
-  end
-  
+describe 'instance methods' do
+end
+
+describe 'class methods' do
+end
+
 end
 
