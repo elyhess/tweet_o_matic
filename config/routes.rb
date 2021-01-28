@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 	root 'welcome#index'
 	resources :about, only: [:index]
 
+	get 'password', to: "passwords#edit"
+	patch 'password', to: "passwords#update"
+
 	get 'sign_up', to: 'registrations#new'
 	post 'sign_up', to: 'registrations#create'
 
