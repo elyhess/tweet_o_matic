@@ -29,3 +29,15 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+coverage
+# Ignore application configuration
+/config/application.yml
