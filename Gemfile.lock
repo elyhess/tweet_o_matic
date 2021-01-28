@@ -178,6 +178,14 @@ GEM
     rspec-mocks (3.10.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
+    rspec-rails (4.0.2)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
     rspec-support (3.10.1)
     ruby-graphviz (1.2.5)
       rexml
@@ -259,6 +267,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.4)
   rails-erd
+  rspec-rails (~> 4.0.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-matchers
