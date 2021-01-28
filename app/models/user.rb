@@ -1,5 +1,5 @@
 class User < ApplicationRecord
 	has_secure_password
-	validates_presence_of :email
+	validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "you must use a valid email address" }
 	validates_presence_of :password
 end
