@@ -76,3 +76,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "omniauth-twitter", "~> 1.4"
 gem "omniauth-rails_csrf_protection"
 gem "twitter", "~> 7.0"
+# locale: :'en-US' to l in tweet form partial
+# gem 'rails-i18n', '~> 5.1'
+
+gem "sidekiq", "~> 6.1"
