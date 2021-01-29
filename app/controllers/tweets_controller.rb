@@ -4,4 +4,10 @@ class TweetsController < ApplicationController
 	def index
 		@tweets = Current.user.tweets
 	end
+
+	def new
+		@tweet = Tweet.new
+	end
+
+
 end
