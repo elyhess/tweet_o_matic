@@ -10,7 +10,6 @@ class TweetsController < ApplicationController
 		@tweet = Tweet.new
 	end
 
-
 	def create
 		@tweet = Current.user.tweets.create(tweet_params)
 		if @tweet.save
