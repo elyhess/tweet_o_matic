@@ -4,7 +4,8 @@ class OmniauthCallbacksController < ApplicationController
 		account.update(
 			name:     auth.info.name,
 			username: auth.info.nickname,
-			token:    auth.info.image,
+			image:    auth.info.image,
+			token:    auth.credentials.token,
 			secret:   auth.credentials.secret
 		)
 		redirect_to root_path, notice: "Successfully connected your account."
