@@ -23,7 +23,7 @@
     <%= f.button "Schedule", class: "btn btn-primary" %>
 
     <% if f.object.persisted? %>
-      <%= button_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     <% end %>
   </div>
 
