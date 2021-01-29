@@ -2,13 +2,7 @@
 
 <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]), local: true do |f| %>
 
-  <% if @user.errors.any? %>
-    <div class="alert alert-danger">
-      <% @user.errors.full_messages.each do |error| %>
-        <div><%= error %></div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: "shared/form_errors", locals: {f: f} %>
 
   <div class="mb-3">
     <%= f.label :password %><br/>
