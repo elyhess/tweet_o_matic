@@ -1,6 +1,9 @@
 <h1>Schedule A Tweet</h1>
 
 <%= form_with(model: @tweet, local: true) do |f| %>
+
+  <%= render partial: "shared/form_errors", locals: {f: f} %>
+
   <div class="mb-3">
     <%= f.label :twitter_account_id %>
     <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
