@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Buffer</title>
+    <title>Tweet-O-Matic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,9 +19,10 @@
 
     <div class="container">
       <%= render partial: "shared/flash" %>
+      <%= button_to "something", "/auth/twitter", class: "btn btn-primary" %>
       <%= yield %>
     </div>
 
   </body>
 
-</html>
+</html>r

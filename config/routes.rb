@@ -20,4 +20,5 @@ Rails.application.routes.draw do
 	# performs reset itself
 	get 'password/reset/edit', to: 'password_resets#edit'
 	patch 'password/reset/edit', to: 'password_resets#update'
+
 end
