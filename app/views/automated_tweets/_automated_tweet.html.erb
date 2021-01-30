@@ -2,8 +2,13 @@
   <div class="me-4">
     <%= image_tag automated_tweet.twitter_account.image, class: "rounded-circle" %>
     <%= link_to "@#{automated_tweet.twitter_account.username}", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %><br>
+    <div class="mt-3">
       Theme: <%= automated_tweet.body %><br>
       Running until <%= l automated_tweet.stop_at, format: :long %><br>
       Post Interval: <%= automated_tweet.post_interval %> hours
+    </div>
+    <div class="mt-3">
+      <%= button_to "Cancel", automated_tweet_path(automated_tweet), method: :delete, class: "btn btn-sm btn-outline-danger"%>
+    </div>
   </div>
 </div>
