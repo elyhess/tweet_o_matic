@@ -1,0 +1,24 @@
+<h1>Automate Tweets</h1>
+
+<%#= form_with(url: automations_path) do |f| %>
+<!--  <div class="mb-3">-->
+    <%#= f.label :twitter_account_id %>
+    <%#= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
+<!--  </div>-->
+
+<!--  <div class="mb-3">-->
+    <%#= f.label :body %>
+    <%#= f.select :body, options_for_select(@collection), {}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+<!--  </div>-->
+
+<!--  <div class="mb-3">-->
+    <%#= f.label :stop_at %>
+<!--    <div class="form-control">-->
+      <%#= f.datetime_select :stop_at %>
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="mb-3">-->
+    <%#= f.submit "Enter", class: "btn btn-primary"%>
+<!--  </div>-->
+<%# end %>
