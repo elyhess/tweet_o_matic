@@ -27,4 +27,5 @@ Rails.application.routes.draw do
 	resources :tweets
 
 	resources :automations
+	resources :automated_tweets
 end
