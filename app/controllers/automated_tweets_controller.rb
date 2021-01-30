@@ -19,6 +19,12 @@ class AutomatedTweetsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@tweet = Current.user.automated_tweets.find(params[:id])
+		@tweet.destroy
+		redirect_to automated_tweets_path, notice: "Automated tweet was cancelled successfully"
+	end
+
 
 	private
 
