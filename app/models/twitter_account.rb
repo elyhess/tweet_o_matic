@@ -1,6 +1,7 @@
 class TwitterAccount < ApplicationRecord
   belongs_to :user
   has_many :tweets, dependent: :destroy
+  has_many :automated_tweets
   validates :username, uniqueness: true
 
   def client
