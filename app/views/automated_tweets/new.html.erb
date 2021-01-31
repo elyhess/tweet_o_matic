@@ -1,0 +1,35 @@
+<h1>Add an automated tweet schedule</h1>
+
+<%= form_with(model: @automated_tweet, local: true) do |f| %>
+
+  <%= render partial: "shared/form_errors", locals: {f: f} %>
+
+  <div class="mb-3">
+    <%= f.label :twitter_account_id %>
+    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :tweet_theme %>
+    <%= f.select :body, options_for_select(@collection), {autofocus: 'true', class: 'form-control'} %>
+  </div>
+
+  <div class="mb-3">
+      <%= f.label :stop_at %>
+    <div class="form-control">
+      <%= f.datetime_select :stop_at %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :post_interval_in_hours %>
+    <div class="form-control">
+      <%= f.number_field :post_interval %>
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

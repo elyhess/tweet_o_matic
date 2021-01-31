@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1>Automate Tweets</h1>
+
+  <% if Current.user.twitter_accounts.any? %>
+    <%= link_to "Create Tweet Automation", new_automated_tweet_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<% if Current.user.automated_tweets.any? %>
+  <%= render @automated_tweets %>
+<% end %>
