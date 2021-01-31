@@ -11,11 +11,15 @@ class AutomatedTweetsController < ApplicationController
 	end
 
 	def create
-		@automated_tweet = Current.user.automated_tweets.new(automated_tweet_params)
-		if @automated_tweet.save
-			redirect_to automated_tweets_path, notice: "Automated tweet has been started successfully"
+		if Current.user.automated_tweets.any_in_progress?
+			redirect_to automated_tweets_path, notice: "There is already a tweet automation in progress. Please wait for it to finish."
 		else
-			render :new
+			@automated_tweet = Current.user.automated_tweets.new(automated_tweet_params)
+			if @automated_tweet.save
+				redirect_to automated_tweets_path, notice: "Automated tweet has been started successfully"
+			else
+				render :new
+			end
 		end
 	end
 
@@ -24,7 +28,6 @@ class AutomatedTweetsController < ApplicationController
 		@tweet.destroy
 		redirect_to automated_tweets_path, notice: "Automated tweet was cancelled successfully"
 	end
-
 
 	private
 
