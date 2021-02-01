@@ -18,7 +18,8 @@ class AutomatedTweetsController < ApplicationController
 			if @automated_tweet.save
 				redirect_to automated_tweets_path, notice: "Automated tweet has been started successfully"
 			else
-				render :new
+				flash[:alert] = "The date you select has already passed."
+				redirect_to new_automated_tweet_path
 			end
 		end
 	end

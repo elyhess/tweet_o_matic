@@ -5,16 +5,27 @@
     <div class="mt-3">
       Theme: <%= automated_tweet.body %><br>
 
-      <% if Time.now > automated_tweet.stop_at %>
-        This operation ran for <%= ((automated_tweet.stop_at - automated_tweet.created_at) / 60).round(0) %> minutes.<br>
+      <% if automated_tweet.completed? %>
+        This operation ran for <%= automated_tweet.total_tweets.round(0) %> minutes.<br>
+        <%= automated_tweet.total_tweets.round(0) %> tweets posted. <br>
+        Click <%= link_to "here", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %> to see your tweets.
       <% else %>
         Running until <%= l automated_tweet.stop_at, format: :long %><br>
-        <div class="mt-3">
-          <%= button_to "Cancel", automated_tweet_path(automated_tweet), method: :delete, class: "btn btn-sm btn-outline-danger"%>
+        <%= automated_tweet.tweet_count %> / <%= automated_tweet.total_tweets.round(0) %> tweets posted.
+
+        <div class="progress">
+          <div class="turbolinks-progress-bar progress-bar progress-bar-striped progress-bar-animated"
+               role="progressbar"
+               aria-valuemin="0"
+               aria-valuemax="100"
+               style="width: <%= (automated_tweet.tweet_count.to_f / automated_tweet.total_tweets.round * 100).round(0) %>%">
+              <%= automated_tweet.tweet_count %> Completed
+          </div>
         </div>
+
       <% end %>
 
-      Post Interval: <%= automated_tweet.post_interval %> hours
     </div>
   </div>
 </div>
+
