@@ -6,7 +6,7 @@
       Theme: <%= automated_tweet.body %><br>
 
       <% if automated_tweet.completed? %>
-        This operation ran for <%= automated_tweet.total_tweets.round(0) %> minutes.<br>
+        This operation ran for <%= automated_tweet.total_tweets.round(0) / 60 %> hours.<br>
         <%= automated_tweet.total_tweets.round(0) %> tweets posted. <br>
         Click <%= link_to "here", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %> to see your tweets.
       <% else %>
@@ -18,8 +18,8 @@
                role="progressbar"
                aria-valuemin="0"
                aria-valuemax="100"
-               style="width: <%= (automated_tweet.tweet_count.to_f / automated_tweet.total_tweets.round * 100).round(0) %>%">
-              <%= automated_tweet.tweet_count %> Completed
+               style="width: <%= (automated_tweet.tweet_count.to_f / automated_tweet.total_tweets.round) * 100 %>%">
+              <%= automated_tweet.tweet_count %>
           </div>
         </div>
 

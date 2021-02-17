@@ -21,7 +21,7 @@ class AutomatedTweet < ApplicationRecord
 	end
 
 	def total_tweets
-		((self.stop_at - self.created_at) / 60)
+		((self.stop_at - self.created_at) / 60 / 60)
 	end
 
 	def change_status_to_completed
@@ -47,9 +47,9 @@ class AutomatedTweet < ApplicationRecord
 
 	def timed_publish!
 		tweet_count = 0
-		total_hours = ((self.stop_at - self.created_at) / 60).round(0)
+		total_hours = ((self.stop_at - self.created_at) / 60 / 60).round(0)
 		total_hours.times do
-			AutoTweetJob.set(wait_until: tweet_count.minutes.from_now).perform_later(self)
+			AutoTweetJob.set(wait_until: tweet_count.hours.from_now).perform_later(self)
 			tweet_count += 1
 		end
 	end
