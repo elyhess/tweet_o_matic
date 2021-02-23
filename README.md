@@ -57,11 +57,6 @@ To get a local copy up and running follow these simple steps.
    rails db:migrate
    rails db:seed
    ```
-3. Run tests and view test coverage
-   ```
-   bundle exec rspec
-   open coverage/index.html
-   ```
 4. Run server and navigate to http://localhost:3000/
    ```
    rails s
