@@ -19,7 +19,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot / buffer clone application based off of the [GOrails](https://gorails.com/series/rails-for-beginners) tutorial series. As an extension, I added functionality using ActiveJob in conjunction with Redis & Sidekiq, allowing users to enable a tweet bot that will post tweets from their account at a set interval. This project is currently on-going and is meant as a play-ground for learning and implementing rails features.
+[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot / Hootsuite clone application based off of the [GOrails](https://gorails.com/series/rails-for-beginners) tutorial series. As an extension, I added functionality using ActiveJob in conjunction with Redis & Sidekiq, allowing users to enable a tweet bot that will post tweets from their account at a set interval. This project is currently on-going and is meant as a play-ground for learning and implementing rails features.
 
 
 <!-- PROJECT BOARD -->
