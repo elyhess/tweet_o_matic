@@ -3,6 +3,8 @@ class AutomatedTweetsController < ApplicationController
 
 	def index
 		@automated_tweets = Current.user.automated_tweets
+		# remove this one you find out what's causing them to instantly disappear
+		ActionCable.server.broadcast "automated_tweets", { html: "<div>This should be appearing somewhere???</div>" }
 	end
 	
 	def new
