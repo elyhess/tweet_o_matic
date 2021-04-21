@@ -16,10 +16,11 @@
   <li><a href="#acknowledgements">Acknowledgements</a></li>
 </ol>
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot / buffer clone application based off of the [GOrails](https://gorails.com/series/rails-for-beginners) tutorial series. As an extension, I added functionality using ActiveJob in conjunction with Redis & Sidekiq, allowing users to enable a tweet bot that will post tweets from their account at a set interval. This project is currently on-going and is meant as a play-ground for learning and implementing rails features.
+[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot / HootSuite clone application based off of the [GOrails](https://gorails.com/series/rails-for-beginners) tutorial series. As an extension, I added functionality using ActiveJob in conjunction with Redis & Sidekiq, allowing users to enable a tweet bot that will post tweets from their account at a set interval. This project is currently on-going and is meant as a play-ground for learning and implementing rails features.
 
 
 <!-- PROJECT BOARD -->
@@ -56,11 +57,6 @@ To get a local copy up and running follow these simple steps.
    rails db:create
    rails db:migrate
    rails db:seed
-   ```
-3. Run tests and view test coverage
-   ```
-   bundle exec rspec
-   open coverage/index.html
    ```
 4. Run server and navigate to http://localhost:3000/
    ```
