@@ -11,6 +11,7 @@ App.automated_tweets = App.cable.subscriptions.create("AutomatedTweetsChannel", 
     // Called when there's incoming data on the websocket for this channel
    // ActionCable.server.broadcast "automated_tweets", { html: "<div>This should be appearing somewhere???</div>" } in console
 
-    $("#automated_tweets").prepend(data.html);
+    // $("#progress-bar").prepend(data.html);
+    addProgress()
   }
 });
