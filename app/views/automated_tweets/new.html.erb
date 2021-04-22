@@ -15,12 +15,9 @@
   </div>
 
   <div class="mb-3">
-      <%= f.label :stop_at %>
-    <div class="form-control">
-      <%= f.datetime_select :stop_at %>
-    </div>
+    <%= f.label :tweet_amount %>
+    <%= f.collection_select :total_tweets, @runtime, :last, :first, {}, {autofocus: 'true', class: "form-control"} %>
   </div>
-
 
   <div class="mb-3">
     <%= f.submit class: "btn btn-primary"%>
