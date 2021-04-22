@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_015327) do
+ActiveRecord::Schema.define(version: 2021_04_21_174141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,11 @@ ActiveRecord::Schema.define(version: 2021_02_01_015327) do
     t.bigint "user_id"
     t.bigint "twitter_account_id"
     t.string "body"
-    t.datetime "stop_at"
-    t.integer "post_interval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.integer "tweet_count", default: 0
+    t.integer "total_tweets", default: 0
     t.index ["twitter_account_id"], name: "index_automated_tweets_on_twitter_account_id"
     t.index ["user_id"], name: "index_automated_tweets_on_user_id"
   end
