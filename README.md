@@ -20,12 +20,16 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot / HootSuite clone application based off of the [GOrails](https://gorails.com/series/rails-for-beginners) tutorial series. As an extension, I added functionality using ActiveJob in conjunction with Redis & Sidekiq, allowing users to enable a tweet bot that will post tweets from their account at a set interval. This project is currently on-going and is meant as a play-ground for learning and implementing rails features.
+[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot application inspired by Buffer and HootSuite. After signing in with twitter users can schedule single tweets and set up tweet automations for timed twitter posts. Tweet-O-Matic utilizes ActiveJob to execute tweets at set intervals and ActionCable + Javascript to display progress of tweet automations dynamically. This project is currently on-going and is meant as a play-ground for learning and implementing rails / javascript features.
 
+### Key Challenges
+- Building out automated tweet controller and model functionality with ActiveJob integration.
+- Utilizing activeStorage within vanilla javascript to save progress bar state when changing pages / refreshing.
+- Deployment to Heroku utilizing Redis for background job handling.
 
 <!-- PROJECT BOARD -->
 ## Project Board
-Check out the [Project board](https://github.com/elyhess/tweet_o_matic/projects/1) for a complete list of features / user stories used to develop this application.
+Check out the [Project board](https://github.com/elyhess/tweet_o_matic/projects/1) for a complete list of upcoming additions to this project.
 
 <!-- DATABBASE SCHEMA -->
 ## Database Schema
@@ -64,7 +68,7 @@ To get a local copy up and running follow these simple steps.
    ```
 OR
 
-1. Visit heroku and sign in
+1. Visit heroku and create an account / sign in
    ```
    https://tweet-o-matic.herokuapp.com/
    ```
@@ -72,10 +76,3 @@ OR
 <!-- CONTACT -->
 ## Contact
 * [Ely Hess](https://github.com/elyhess) - ely.hess@me.com
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* [README template](https://github.com/othneildrew/Best-README-Template)
-* [GOrails Tutorial](https://gorails.com/series/rails-for-beginners)
