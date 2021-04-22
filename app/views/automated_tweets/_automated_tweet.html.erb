@@ -4,7 +4,7 @@
   <div class="me-4">
       <%= image_tag automated_tweet.twitter_account.image, class: "rounded-circle" %>
       <%= link_to "@#{automated_tweet.twitter_account.username}", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %><br>
-      <%= button_to "Delete", automated_tweet_path(automated_tweet), method: :delete %>
+      <%#= button_to "Delete", automated_tweet_path(automated_tweet), method: :delete %>
       <div class="mt-3">
         Theme: <%= automated_tweet.body %><br>
 
@@ -21,61 +21,6 @@
               <div class="progress-value">0</div>
             </div>
           </div>
-
-          <script>
-
-            window.addEventListener("load", loadExistingData);
-            totalTweetCount = parseInt(`<%= automated_tweet.total_tweets.to_i %>`);
-            percentageTick = parseInt(`<%= 100 / automated_tweet.total_tweets.ceil %>`)
-            tweetCount = parseInt(`<%= automated_tweet.tweet_count %>`)
-
-            function loadExistingData() {
-              var storedPercentage = localStorage.getItem('percentage')
-              getPercentage = JSON.parse(storedPercentage);
-              currentPercentage = getPercentage;
-              $('.progress-bar').css('width', currentPercentage+'%').attr('aria-valuenow', currentPercentage);
-
-              var getValue = localStorage.getItem('value');
-              var value = JSON.parse(getValue);
-              if (!value) {
-                  value = -1
-              }
-              updateValues(value)
-            }
-
-            function addProgress(){
-              currentPercentage = currentPercentage + percentageTick;
-
-              var newPercentage = JSON.stringify(currentPercentage);
-
-              localStorage.setItem("percentage", newPercentage)
-
-              $('.progress-bar').css('width', currentPercentage+'%').attr('aria-valuenow', currentPercentage);
-              updateValues()
-
-              if (currentPercentage === 100) {
-                  window.location.reload();
-                  localStorage.clear();
-              }
-            }
-
-            function updateValues(currentValue = 0) {
-              var value = document.getElementsByClassName('progress-value');
-              [...value].forEach((el) => {
-                if (currentValue === 0) {
-                  var number = el.innerHTML;
-                  number ++;
-                  localStorage.setItem("value", number);
-                  el.innerHTML = number;
-                } else if (currentValue === -1){
-                    el.innerHTML = 0
-                } else {
-                  el.innerHTML = currentValue;
-                }
-              });
-            }
-
-          </script>
 
       </div>
     <% end %>
