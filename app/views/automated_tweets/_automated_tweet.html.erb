@@ -9,33 +9,73 @@
         Theme: <%= automated_tweet.body %><br>
 
         <% if automated_tweet.completed? %>
-          This operation ran for <%= automated_tweet.total_tweets.round(0) %> hours.<br>
-          <%= automated_tweet.total_tweets.round(0) %> tweets posted. <br>
+          This operation ran for <%= automated_tweet.total_tweets %> minutes.<br>
+          <%= automated_tweet.total_tweets %> tweets posted. <br>
           Click <%= link_to "here", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %> to see your tweets.
         <% else %>
-          Running until <%= l automated_tweet.stop_at, format: :long %><br>
+          Status: <%= automated_tweet.status.titleize %><br>
+          <span class="progress-value">0</span> / <%= automated_tweet.total_tweets %> tweets posted.
 
-          <%= automated_tweet.tweet_count %> / <%= automated_tweet.total_tweets.ceil %> tweets posted.
-
-          <div class="progress progress-striped active">
-            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-              <%= automated_tweet.tweet_count %>
+          <div class="progress" style="height: 20px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-value">0</div>
             </div>
           </div>
 
           <script>
-            valuer = 0;
+
+            window.addEventListener("load", loadExistingData);
+            totalTweetCount = parseInt(`<%= automated_tweet.total_tweets.to_i %>`);
+            percentageTick = parseInt(`<%= 100 / automated_tweet.total_tweets.ceil %>`)
+            tweetCount = parseInt(`<%= automated_tweet.tweet_count %>`)
+
+            function loadExistingData() {
+              var storedPercentage = localStorage.getItem('percentage')
+              getPercentage = JSON.parse(storedPercentage);
+              currentPercentage = getPercentage;
+              $('.progress-bar').css('width', currentPercentage+'%').attr('aria-valuenow', currentPercentage);
+
+              var getValue = localStorage.getItem('value');
+              var value = JSON.parse(getValue);
+              if (!value) {
+                  value = -1
+              }
+              updateValues(value)
+            }
 
             function addProgress(){
-                if ((`<%= 1 + automated_tweet.tweet_count %>`) === (`<%= automated_tweet.total_tweets.ceil %>`)) {
-                  window.location.reload();
-                } else {
-                  valuer = valuer + parseInt(`<%= 100 / automated_tweet.total_tweets.ceil %>`);
-                  $('.progress-bar').css('width', valuer+'%').attr('aria-valuenow', valuer);
-                  }
-                }
-          </script>
+              currentPercentage = currentPercentage + percentageTick;
 
+              var newPercentage = JSON.stringify(currentPercentage);
+
+              localStorage.setItem("percentage", newPercentage)
+
+              $('.progress-bar').css('width', currentPercentage+'%').attr('aria-valuenow', currentPercentage);
+              updateValues()
+
+              if (currentPercentage === 100) {
+                  window.location.reload();
+                  localStorage.clear();
+              }
+            }
+
+            function updateValues(currentValue = 0) {
+              var value = document.getElementsByClassName('progress-value');
+              [...value].forEach((el) => {
+                if (currentValue === 0) {
+                  var number = el.innerHTML;
+                  number ++;
+                  localStorage.setItem("value", number);
+                  el.innerHTML = number;
+                } else if (currentValue === -1){
+                    el.innerHTML = 0
+                } else {
+                  el.innerHTML = currentValue;
+                }
+              });
+            }
+
+          </script>
 
       </div>
     <% end %>

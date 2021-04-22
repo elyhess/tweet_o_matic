@@ -7,6 +7,13 @@ class AutomatedTweetsController < ApplicationController
 	
 	def new
 		@collection = ["famous last words", "most interesting man in the world", "yoda"]
+		@runtime = {
+								"5 minutes / 5 tweets" => 5,
+		            "10 minutes / 10 tweets" => 10,
+		            "25 minutes / 25 tweets" => 25,
+		            "50 minutes / 50 tweets" => 50,
+		            "100 minutes / 100 tweets" => 100
+								}
 		@automated_tweet = AutomatedTweet.new
 	end
 
@@ -33,6 +40,6 @@ class AutomatedTweetsController < ApplicationController
 	private
 
 	def automated_tweet_params
-		params.require(:automated_tweet).permit(:twitter_account_id, :body, :stop_at, :post_interval)
+		params.require(:automated_tweet).permit(:twitter_account_id, :body, :total_tweets)
 	end
 end
