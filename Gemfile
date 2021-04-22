@@ -50,7 +50,6 @@ group :development, :test do
   gem "rails-erd"
   gem "awesome_print", :require => "ap"
   gem "hirb"
-  gem "faker"
   gem "factory_bot_rails"
 end
 
@@ -76,6 +75,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "omniauth-twitter", "~> 1.4"
 gem "omniauth-rails_csrf_protection"
 gem "twitter", "~> 7.0"
+gem "faker"
 # locale: :'en-US' to l in tweet form partial
 # gem 'rails-i18n', '~> 5.1'
 gem "sidekiq", "~> 6.1"
