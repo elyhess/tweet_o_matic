@@ -11,12 +11,12 @@
 
   <div class="mb-3">
     <%= f.label :tweet_theme %>
-    <%= f.select :body, options_for_select(@collection), {}, {autofocus: 'true', class: 'form-control'} %>
+    <%= f.select :body, options_for_select(tweet_content_categories), {}, {autofocus: 'true', class: 'form-control'} %>
   </div>
 
   <div class="mb-3">
     <%= f.label :tweet_amount %>
-    <%= f.collection_select :total_tweets, @runtime, :last, :first, {}, {autofocus: 'true', class: "form-control"} %>
+    <%= f.collection_select :total_tweets, tweet_runtime, :last, :first, {}, {autofocus: 'true', class: "form-control"} %>
   </div>
 
   <div class="mb-3">
