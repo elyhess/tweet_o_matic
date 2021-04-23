@@ -1,12 +1,11 @@
+var offPage = false
+
 window.addEventListener("load", loadExistingData);
 
-var automationLink = document.getElementById('automation-link')
-automationLink.addEventListener('click', loadExistingData)
-
-totalTweetCount = parseInt(`<%= automated_tweet.total_tweets.to_i %>`);
-percentageTick = parseInt(`<%= 100 / automated_tweet.total_tweets.ceil %>`)
-tweetCount = parseInt(`<%= automated_tweet.tweet_count %>`)
-
+window.onLoad=function() {
+    var automationLink = document.getElementById('automation-link')
+    automationLink.addEventListener('click', loadExistingData)
+}
 
 function loadExistingData() {
     var storedPercentage = localStorage.getItem('percentage')
@@ -16,10 +15,11 @@ function loadExistingData() {
 
     var getValue = localStorage.getItem('value');
     var value = JSON.parse(getValue);
-    if (!value) {
-        value = -1
+    if (value === null) {
+        updateValues(0)
+    } else {
+        updateValues(value)
     }
-    updateValues(value)
 }
 
 function addProgress() {
@@ -30,26 +30,38 @@ function addProgress() {
     localStorage.setItem("percentage", newPercentage)
 
     $('.progress-bar').css('width', currentPercentage + '%').attr('aria-valuenow', currentPercentage);
-    updateValues()
+
+    if (window.location.pathname === "/automated_tweets") {
+        updateValues()
+    } else {
+        var getValue = localStorage.getItem('value');
+        var value = JSON.parse(getValue);
+        offPageUpdate(value)
+    }
 
     if (currentPercentage === 100) {
-        window.location.reload();
         localStorage.clear();
+        window.location.reload();
     }
 }
 
-function updateValues(currentValue = 0) {
+function updateValues(currentValue) {
     var value = document.getElementsByClassName('progress-value');
     [...value].forEach((el) => {
-        if (currentValue === 0) {
-            var number = el.innerHTML;
-            number++;
-            localStorage.setItem("value", number);
-            el.innerHTML = number;
-        } else if (currentValue === -1) {
-            el.innerHTML = 0
+        if (currentValue === 0 || currentValue) {
+            el.innerHTML = currentValue
         } else {
-            el.innerHTML = currentValue;
+            var number = el.innerHTML
+            number++;
+            localStorage.setItem("value", JSON.stringify(number));
+            el.innerHTML = number;
         }
     });
+}
+
+
+function offPageUpdate(currentValue) {
+    var newValue = currentValue + 1;
+    console.log(newValue)
+    localStorage.setItem("value", JSON.stringify(newValue));
 }
