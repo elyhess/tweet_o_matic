@@ -1,5 +1,7 @@
 {
   "name": "buffer_clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
