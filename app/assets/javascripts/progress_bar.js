@@ -1,30 +1,23 @@
-// var options = {
-//     method: "GET",
-//     headers: {"Content-Type": "application/json"}
-// }
-// var theThing = fetch(
-//     "http://localhost:3000/progress_bar",
-//     options
-// ).then((data) => data.json())
-
-// console.log(theThing.body)
-//
-// automatedTweet = fetch("http://localhost:3000/progress_bar")
-//     .then(response => response.json())
-//     .then(data => console.log(data))
+fetchAutoTweet()
 async function fetchAutoTweet() {
     let response = await fetch('/progress_bar');
     let data = await response.json();
 
-    var percentage = (data.tweet_count / data.total_tweets) *  100
-    var tweetCount = data.tweet_count
+    let percentage = (data.tweet_count / data.total_tweets) *  100
+    let tweetCount = data.tweet_count
+
 
     localStorage.setItem("percentage", JSON.stringify(percentage));
     localStorage.setItem("value", JSON.stringify(tweetCount));
-    console.log(percentage)
-    console.log(tweetCount)
 }
-var tweet = fetchAutoTweet()
+
+function restoreAllValues () {
+    localStorage.setItem("percentage", JSON.stringify(0));
+    localStorage.setItem("value", JSON.stringify(0));
+}
+if (document.getElementById("clear-lS") != null) {
+    document.getElementById("clear-lS").addEventListener("click", restoreAllValues);
+}
 
 
 window.addEventListener("load", loadExistingData);

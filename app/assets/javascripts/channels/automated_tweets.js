@@ -10,8 +10,9 @@ App.automated_tweets = App.cable.subscriptions.create("AutomatedTweetsChannel", 
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
    // ActionCable.server.broadcast "automated_tweets", { html: "<div>This should be appearing somewhere???</div>" } in console
-
-    // $("#progress-bar").prepend(data.html);
+   //
+   //  $("#progress-bar").prepend(data.html);
+   //  console.log("hey")
     addProgress()
   }
 });
