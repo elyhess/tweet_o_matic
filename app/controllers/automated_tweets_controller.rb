@@ -4,7 +4,7 @@ class AutomatedTweetsController < ApplicationController
 	def index
 		@automated_tweets = Current.user.automated_tweets
 	end
-	
+
 	def new
 		@automated_tweet = AutomatedTweet.new
 	end
@@ -27,6 +27,11 @@ class AutomatedTweetsController < ApplicationController
 		@tweet = Current.user.automated_tweets.find(params[:id])
 		@tweet.destroy
 		redirect_to automated_tweets_path, notice: "Automated tweet was cancelled successfully"
+	end
+
+	def progress_bar
+		automated_tweet = Current.user.automated_tweets.last
+		render :json => automated_tweet
 	end
 
 	private

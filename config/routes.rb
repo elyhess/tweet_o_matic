@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
 	get 'auth/twitter/callback', to: "omniauth_callbacks#twitter"
 
+	get '/progress_bar', to: "automated_tweets#progress_bar"
 	resources :twitter_accounts
 	resources :tweets
 

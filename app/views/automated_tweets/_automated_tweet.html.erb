@@ -7,6 +7,7 @@
 <div id="automated_tweets">
 <div class="mb-3 card card-body">
   <div class="me-4">
+
       <%= image_tag automated_tweet.twitter_account.image, class: "rounded-circle" %>
       <%= link_to "@#{automated_tweet.twitter_account.username}", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %><br>
       <%= button_to "Delete", automated_tweet_path(automated_tweet), method: :delete %>
