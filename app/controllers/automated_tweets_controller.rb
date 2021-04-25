@@ -2,7 +2,7 @@ class AutomatedTweetsController < ApplicationController
 	before_action :require_user_logged_in!
 
 	def index
-		@automated_tweets = Current.user.automated_tweets
+		@automated_tweets = Current.user.automated_tweets.order(created_at: :desc)
 	end
 
 	def new

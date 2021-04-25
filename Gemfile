@@ -80,3 +80,4 @@ gem "faker"
 # locale: :'en-US' to l in tweet form partial
 # gem 'rails-i18n', '~> 5.1'
 gem "sidekiq", "~> 6.1"
+gem "stimulus-rails"

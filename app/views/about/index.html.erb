@@ -1,1 +1,8 @@
 <h1>About</h1>
+
+<div class="container text-center">
+  <%= content_tag :div, nil, data: {controller: "hello"} do %>
+    <h1 data-hello-target="heading">This is the home page</h1>
+    <div class="btn btn-primary" data-action="click->hello#greet">Say Hello</div>
+  <% end %>
+</div>
