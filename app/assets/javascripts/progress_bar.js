@@ -6,19 +6,13 @@ async function fetchAutoTweet() {
     let percentage = (data.tweet_count / data.total_tweets) *  100
     let tweetCount = data.tweet_count
 
-
     localStorage.setItem("percentage", JSON.stringify(percentage));
     localStorage.setItem("value", JSON.stringify(tweetCount));
 }
 
 function restoreAllValues () {
-    localStorage.setItem("percentage", JSON.stringify(0));
-    localStorage.setItem("value", JSON.stringify(0));
+    localStorage.clear();
 }
-if (document.getElementById("clear-lS") != null) {
-    document.getElementById("clear-lS").addEventListener("click", restoreAllValues);
-}
-
 
 window.addEventListener("load", loadExistingData);
 
