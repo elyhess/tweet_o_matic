@@ -30,7 +30,7 @@ class AutomatedTweetsController < ApplicationController
 	end
 
 	def progress_bar
-		automated_tweet = Current.user.automated_tweets.last
+		automated_tweet = Current.user.automated_tweets.in_progress.last
 		render :json => automated_tweet
 	end
 
