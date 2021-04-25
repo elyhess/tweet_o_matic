@@ -1,5 +1,5 @@
 <!-- Shields -->
-![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Rails-6.1.3.1-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
 
@@ -41,6 +41,8 @@ Check out the [Project board](https://github.com/elyhess/tweet_o_matic/projects/
 
 * [Ruby on Rails](https://rubyonrails.org/)
 * [Postgresql](https://www.postgresql.org/)
+* [Stimulus.js](https://stimulus.hotwire.dev/)
+* [Bootstrap](https://getbootstrap.com/)
 * [Redis](https://redis.io/)
 * [Sidekiq](https://sidekiq.org/)
 
