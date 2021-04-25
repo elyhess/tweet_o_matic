@@ -166,6 +166,8 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.3-x86_64-linux)
+      racc (~> 1.4)
     oauth (0.5.6)
     omniauth (2.0.4)
       hashie (>= 3.4.6)
@@ -339,6 +341,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   activejob (~> 6.1)
