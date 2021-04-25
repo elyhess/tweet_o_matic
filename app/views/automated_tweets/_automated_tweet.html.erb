@@ -10,7 +10,6 @@
 
       <%= image_tag automated_tweet.twitter_account.image, class: "rounded-circle" %>
       <%= link_to "@#{automated_tweet.twitter_account.username}", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %><br>
-      <%= button_to "Delete", automated_tweet_path(automated_tweet), method: :delete %>
       <div class="mt-3">
         Theme: <%= automated_tweet.body %><br>
 
@@ -22,11 +21,12 @@
           Status: <%= automated_tweet.status.titleize %><br>
           <span class="progress-value">0</span> / <%= automated_tweet.total_tweets %> tweets posted.
 
-          <div class="progress" style="height: 20px;">
+          <div class="progress mb-3" style="height: 20px;">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
               <div class="progress-value">0</div>
             </div>
           </div>
+        <%= button_to "Delete", automated_tweet_path(automated_tweet), method: :delete, class: "btn btn-outline-danger float-right" %>
       </div>
     <% end %>
   </div>
