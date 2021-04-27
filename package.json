@@ -4,8 +4,10 @@
     "@rails/webpacker": "5.2.1",
     "@tailwindcss/postcss7-compat": "^2.1.2",
     "autoprefixer": "^9",
+    "flatpickr": "^4.6.9",
     "postcss": "^7",
     "stimulus": "^2.0.0",
+    "stimulus-flatpickr": "^1.4.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tailwindcss-stimulus-components": "^2.2.0"
   },
