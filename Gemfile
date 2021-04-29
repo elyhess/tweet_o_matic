@@ -80,3 +80,5 @@ gem "faker"
 gem 'rails-i18n'
 gem "sidekiq", "~> 6.1"
 gem "stimulus-rails"
+gem "view_component", require: "view_component/engine"
+
