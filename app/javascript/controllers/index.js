@@ -11,5 +11,8 @@ application.load(definitionsFromContext(context))
 // flatpickr datetime selector
 import Flatpickr from 'stimulus-flatpickr'
 require("flatpickr/dist/flatpickr.css")
-
 application.register('flatpickr', Flatpickr)
+
+// Alerts
+import { Alert } from "tailwindcss-stimulus-components"
+application.register('alert', Alert)
