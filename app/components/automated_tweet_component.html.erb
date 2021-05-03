@@ -1,4 +1,8 @@
-<div class="card-body">
+<% if automated_tweet.in_progress? %>
+  <div data-controller="progress" class="card-body">
+<% else %>
+  <div class="card-body">
+<% end %>
   <div class="card-img">
     <%= image_tag automated_tweet.twitter_account.image, class: "shadow rounded-full max-w-full" %>
   </div>
@@ -33,7 +37,7 @@
         <% if automated_tweet.completed? %>
           <p><%= automated_tweet.total_tweets %> tweets posted.</p>
         <% else %>
-          <span class="progress-value text-blue-400">0</span><p>out of <%= automated_tweet.total_tweets %> tweets posted.</p>
+            <p data-progress-target="number" class="text-blue-400">0</p><p>out of <%= automated_tweet.total_tweets %> tweets posted.</p>
         <% end %>
       </div>
     </div>
@@ -46,12 +50,15 @@
 
           <div class="h-11 w-10/12 relative rounded-full overflow-hidden">
             <div class="w-full h-full bg-gray-200 absolute"></div>
-            <div class="h-full bg-blue-400 absolute" style="width:50%">
-              <div class="text-center progress-value">
-                <p class="text-xl pt-2">50%</p>
+              <div data-progress-target="status" class="h-full bg-blue-400 absolute" style="width:0%">
+              <div data-progress-target="barnumber" class="text-center text-xl pt-2">
+                <% if automated_tweet.tweet_count >= 1 %>
+                  <p>0</p>
+                <% end %>
               </div>
             </div>
           </div>
+
 
           <div>
             <%= button_to "Cancel", automated_tweet_path(automated_tweet), method: :delete, onClick: "restoreAllValues()", class: "btn-red",  data: {confirm: "Are you sure you want cancel these tweets from being posted?" }%>
