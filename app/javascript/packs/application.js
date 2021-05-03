@@ -18,7 +18,7 @@
 import Rails from "@rails/ujs"
 window.Rails = Rails
 // require("@rails/activestorage").start()
-// require("channels")
+require("channels")
 // require("trix")
 // require("@rails/actiontext")
 // Start Rails UJS
