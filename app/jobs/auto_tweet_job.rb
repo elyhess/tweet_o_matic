@@ -8,7 +8,7 @@ class AutoTweetJob < ApplicationJob
 	def perform(automated_tweet)
 		if automated_tweet.present?
 			automated_tweet.publish_to_twitter!
-			ActionCable.server.broadcast "automated_tweets", { html: "<div>This should be appearing somewhere???</div>" }
+			ActionCable.server.broadcast "automated_tweets", { tweet_count: automated_tweet.tweet_count, total_tweets: automated_tweet.total_tweets }
 		end
 	end
 
