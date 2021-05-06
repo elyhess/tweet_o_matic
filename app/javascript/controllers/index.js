@@ -13,6 +13,10 @@ import Flatpickr from 'stimulus-flatpickr'
 require("flatpickr/dist/flatpickr.css")
 application.register('flatpickr', Flatpickr)
 
-// Alerts
+// Alert
 import { Alert } from "tailwindcss-stimulus-components"
 application.register('alert', Alert)
+
+// Dropdown
+import { Dropdown } from "tailwindcss-stimulus-components"
+application.register('dropdown', Dropdown)
