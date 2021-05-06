@@ -1,4 +1,6 @@
-<h1>Add an automated tweet schedule</h1>
+<div class="my-2 pb-4">
+  <p class="text-4xl font-bold">Automated Tweets</p>
+</div>
 
 <%= form_with(model: @automated_tweet, local: true) do |f| %>
 
@@ -6,20 +8,20 @@
 
   <div class="mb-3">
     <%= f.label :twitter_account_id %>
-    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
+    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "input"} %>
   </div>
 
   <div class="mb-3">
     <%= f.label :tweet_theme %>
-    <%= f.select :body, options_for_select(tweet_content_categories), {}, {autofocus: 'true', class: 'form-control'} %>
+    <%= f.select :body, options_for_select(tweet_content_categories), {}, {autofocus: 'true', class: 'input'} %>
   </div>
 
   <div class="mb-3">
     <%= f.label :tweet_amount %>
-    <%= f.collection_select :total_tweets, tweet_runtime, :last, :first, {}, {autofocus: 'true', class: "form-control"} %>
+    <%= f.collection_select :total_tweets, tweet_runtime, :last, :first, {}, {autofocus: 'true', class: "input"} %>
   </div>
 
   <div class="mb-3">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit "Schedule", class: "btn-blue" %>
   </div>
 <% end %>
