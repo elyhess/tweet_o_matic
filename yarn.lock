@@ -7341,6 +7341,13 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+tailwindcss-stimulus-components@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.2.0.tgz#55b4d6d0179a382866ef8b1d085d0bdabf52306e"
+  integrity sha512-mOLJT5+jVm/PWRMvyx1aIcsKwQb+LRx3+XR3spYAn3CDff1qLW4R/GEz/8bz2cz2IkAn/eLmwzbRGzZSWFRw+w==
+  dependencies:
+    stimulus "^2.0.0"
+
 tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
