@@ -120,5 +120,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.active_job.queue_adapter = :sidekiq
   config.action_cable.mount_path = "/cable"
-  config.action_cable.url = [ 'https://tweet-o-matic.herokuapp.com', /http:\/\/tweet-o-matic.herokuapp.com.*/ ]
+  config.action_cable.url = [ 'wss://tweet-o-matic.herokuapp.com/cable' ]
 end
