@@ -14,6 +14,7 @@
     "tailwindcss-stimulus-components": "^2.2.0"
   },
   "devDependencies": {
+    "actioncable": "^5.2.6",
     "webpack-dev-server": "^3.11.2"
   }
 }
