@@ -25,7 +25,7 @@ function loadExistingData() {
     var storedPercentage = localStorage.getItem('percentage')
     getPercentage = JSON.parse(storedPercentage);
     currentPercentage = getPercentage;
-    $('.progress-bar').css('width', currentPercentage + '%').attr('aria-valuenow', currentPercentage);
+    $('.progress-bar').css('width', currentPercentage + '%').attr('style', "width:" + currentPercentage + "%");
 
     var getValue = localStorage.getItem('value');
     var value = JSON.parse(getValue);
@@ -43,7 +43,7 @@ function addProgress() {
 
     localStorage.setItem("percentage", newPercentage)
 
-    $('.progress-bar').css('width', currentPercentage + '%').attr('aria-valuenow', currentPercentage);
+    $('.progress-bar').css('width', currentPercentage + '%').attr('style', "width:" + currentPercentage + "%");
 
     if (window.location.pathname === "/automated_tweets") {
         updateValues()
