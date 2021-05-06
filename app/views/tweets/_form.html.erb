@@ -1,26 +1,32 @@
-<%= form_with(model: tweet, local: true) do |f| %>
+<%= form_with(model: tweet) do |f| %>
 
   <%= render partial: "shared/form_errors", locals: {f: f} %>
 
   <div class="mb-3">
     <%= f.label :twitter_account_id %>
-    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control"} %>
+    <%= f.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "input"} %>
   </div>
 
   <div class="mb-3">
     <%= f.label :body %>
-    <%= f.text_area :body, class: "form-control" %>
+    <%= f.text_area :body, class: "input" %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-6">
     <%= f.label :publish_at %>
-    <div class="form-control">
-      <%= f.datetime_select :publish_at %>
-    </div>
+    <%= f.text_field :publish_at,
+                     data: {
+                       controller: "flatpickr",
+                       flatpickr_enable_time: true,
+                       flatpickr_alt_format: "F j, Y" + " at " + "h:i K",
+                       flatpickr_alt_input: true,
+                       disable_mobile: true,
+                       flatpickr_min_date: Time.zone.now
+                     } %>
   </div>
 
-  <div>
-    <%= f.button "Schedule", class: "btn btn-primary" %>
+  <div class="actions">
+    <%= f.button "Schedule", class: "btn-blue" %>
 
     <% if f.object.persisted? %>
       <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "btn-red" %>

@@ -14,9 +14,9 @@
       </div>
       <div class="flex space-x-2 text-gray-400 text-sm">
         <% if tweet.published? %>
-          <p>Posted <%= l tweet.publish_at, format: :long %></p>
+          <p>Posted <%= l tweet.publish_at, format: :long, locale: :'en-US'  %></p>
         <% else %>
-          <p>Scheduled for <%= l tweet.publish_at, format: :long %></p>
+          <p>Scheduled for <%= l tweet.publish_at, format: :long, locale: :'en-US' %></p>
         <% end %>
       </div>
     </div>

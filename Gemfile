@@ -77,6 +77,6 @@ gem "omniauth-rails_csrf_protection"
 gem "twitter", "~> 7.0"
 gem "faker"
 # locale: :'en-US' to l in tweet form partial
-# gem 'rails-i18n', '~> 5.1'
+gem 'rails-i18n'
 gem "sidekiq", "~> 6.1"
-# gem "stimulus-rails"
+gem "stimulus-rails"
