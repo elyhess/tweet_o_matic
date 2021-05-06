@@ -1,0 +1,65 @@
+<div class="card-body">
+  <div class="card-img">
+    <%= image_tag automated_tweet.twitter_account.image, class: "shadow rounded-full max-w-full" %>
+  </div>
+
+  <div class="mt-8">
+    <p class="card-title"><%= automated_tweet.twitter_account.username %></p>
+
+    <div class="flex justify-between">
+      <div class="card-flex card-top-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+        </svg>
+        <%= link_to "Visit account", "https://twitter.com/#{automated_tweet.twitter_account.username}", target: :_blank %>
+      </div>
+      <div class="card-flex card-top-text">
+        <% if automated_tweet.completed? %>
+          <p>This operation ran for <%= automated_tweet.total_tweets %> minutes.</p>
+        <% else %>
+          <p>This operation is <%= automated_tweet.status.titleize %>.</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="flex justify-between">
+      <div class="card-flex card-top-text">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+        </svg>
+        <p><%= automated_tweet.body.capitalize %></p>
+      </div>
+      <div class="card-flex card-top-text">
+        <% if automated_tweet.completed? %>
+          <p><%= automated_tweet.total_tweets %> tweets posted.</p>
+        <% else %>
+          <span class="progress-value text-blue-400">0</span><p>out of <%= automated_tweet.total_tweets %> tweets posted.</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <% unless automated_tweet.completed? %>
+        <div class="border-t-2 pb-5"></div>
+
+        <div class="flex justify-between">
+
+          <div class="h-11 md:w-10/12 relative rounded-full overflow-hidden">
+            <div class="w-full h-full bg-gray-200 absolute"></div>
+            <div class="h-full bg-blue-400 absolute" style="width:50%">
+              <div class="text-center progress-value">
+                <p class="text-xl pt-2">50%</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <%= button_to "Cancel", automated_tweet_path(automated_tweet), method: :delete, onClick: "restoreAllValues()", class: "btn-red",  data: {confirm: "Are you sure you want cancel these tweets from being posted?" }%>
+          </div>
+        </div>
+      <%  end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
