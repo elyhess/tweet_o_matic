@@ -6,8 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('favicon.png')%>
     <%= action_cable_meta_tag %>
 
@@ -16,18 +14,16 @@
   </head>
 
   <body>
-
     <div class="flex min-h-screen">
-      <%= render partial: "shared/navbar" %>
-      <div class="flex flex-col w-full min-w-max">
-        <%= render partial: "shared/topbar" %>
-        <div class="container mx-auto px-10 my-5 mx-16">
-          <%= render partial: "shared/flash" %>
-          <%= yield %>
+        <%= render partial: "shared/navbar" %>
+        <div class="flex flex-col w-full min-w-max">
+          <%= render partial: "shared/topbar" %>
+          <div class="container mx-auto px-10 my-5 mx-16">
+            <%= yield %>
+            <%= render partial: "shared/flash" %>
+          </div>
         </div>
-      </div>
     </div>
-
   </body>
 
 </html>
