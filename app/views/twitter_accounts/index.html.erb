@@ -1,9 +1,9 @@
-<div class="flex justify-between">
+<div class="flex justify-between min-w-max">
   <div class="my-2">
-    <p class="text-4xl font-bold">Twitter Accounts</p>
+    <h3 class="mt-3 text-4xl leading-8 font-medium tracking-tight text-gray-900">Twitter Accounts</h3>
   </div>
-  <div class="my-2">
-    <%= button_to "Add a Twitter account", "/auth/twitter", method: :post, class: "btn-blue" %>
+  <div class="my-6">
+    <%= link_to "Add a Twitter account", "/auth/twitter", method: :post, class: "btn-blue" %>
   </div>
 </div>
 <br>

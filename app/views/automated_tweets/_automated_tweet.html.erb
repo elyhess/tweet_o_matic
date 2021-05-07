@@ -1,7 +1,1 @@
-<script>
-    totalTweetCount = parseInt(`<%= automated_tweet.total_tweets.to_i %>`);
-    percentageTick = parseInt(`<%= 100 / automated_tweet.total_tweets.ceil %>`)
-    tweetCount = parseInt(`<%= automated_tweet.tweet_count %>`)
-</script>
-
 <%= render(AutomatedTweetComponent.new(automated_tweet: automated_tweet)) %>
