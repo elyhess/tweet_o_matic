@@ -1,5 +1,5 @@
 <div class="max-w-lg max-w-xs bg-gray-700 shadow-2xl rounded-lg mx-auto text-center py-12 mt-24 rounded-xl">
-  <h1 class="text-blue-400 text-center font-extrabold -mt-3 text-3xl">Sign In</h1>
+  <h1 class="pb-5 text-blue-400 text-center font-extrabold -mt-3 text-3xl">Sign In</h1>
   <div class="container py-5 max-w-md mx-auto">
 
     <%= form_with url: sign_in_path, local: true do |f| %>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="flex items-center justify-between">
-        <%= f.submit "Sign In", class: "btn-blue" %>
+        <%= f.submit "Sign In", class: "btn-blue bg-gray-300 text-black" %>
         <%= link_to "Forgot your password?", password_reset_path, class: "inline-block align-baseline font-bold text-sm text-gray-300 hover:text-blue-400" %>
       </div>
     <% end %>

@@ -3,7 +3,10 @@
     <div class="flex flex-col overflow-y-auto">
       <ul class="relative m-0 p-0 list-none h-full">
         <li class="text-white text-xl p-5 w-full flex relative shadow-sm justify-start bg-gray-800 border-b-2 border-gray-700">
-          <%= link_to "Tweet-O-Matic", root_path, class: "hover:text-blue-400" %>
+          <%= image_tag "favicon.png", size: "30x30" %>
+          <%= link_to "Tweet-O-Matic", root_path, class: "hover:text-blue-400 pl-2" %>
+        </li>
+        <li>
         </li>
         <% if Current.user %>
         <li class="p-4 w-full flex relative shadow-sm">

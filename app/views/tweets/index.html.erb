@@ -1,14 +1,14 @@
-<div class="flex justify-between">
+<div class="flex justify-between min-w-max">
   <div class="my-2">
-    <p class="text-4xl font-bold">Scheduled Tweets</p>
+    <h3 class="mt-3 text-4xl leading-8 font-medium tracking-tight text-gray-900">Scheduled Tweets</h3>
   </div>
-  <div class="my-2">
+  <div class="my-6">
     <% if Current.user.twitter_accounts.any? %>
       <%= link_to "Schedule a Tweet", new_tweet_path, class: "btn-blue" %>
     <% end %>
 
     <% if Current.user.twitter_accounts.none? %>
-      <%= button_to "Add a Twitter account", '/auth/twitter', class: "btn-blue"  %>
+      <%= link_to "Add a Twitter account", '/auth/twitter', method: :post, class: "btn-blue"  %>
     <% end %>
   </div>
 </div>

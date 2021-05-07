@@ -121,4 +121,18 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
   config.action_cable.mount_path = "/cable"
   config.action_cable.url = [ 'wss://tweet-o-matic.herokuapp.com/cable' ]
+
+  config.action_mailer.delivery_method = :smtp
+  host = 'https://tweet-o-matic.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => ENV["admin_email"],
+    :password             => ENV["admin_password"],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 end
