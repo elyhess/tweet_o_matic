@@ -1,7 +1,7 @@
 <% if automated_tweet.in_progress? %>
   <div data-controller="progress" class="card-body">
 <% else %>
-  <div class="card-body">
+  <div class="card-body min-w-max">
 <% end %>
   <div class="card-img">
     <%= image_tag automated_tweet.twitter_account.image, class: "shadow rounded-full max-w-full" %>
