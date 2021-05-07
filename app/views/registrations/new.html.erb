@@ -1,26 +1,30 @@
-<h1>Sign Up</h1>
 
-<%= form_with(model: @user, url: sign_up_path,  local: true) do |f| %>
 
-  <%= render partial: "shared/form_errors", locals: {f: f} %>
+<div class="max-w-lg max-w-xs bg-gray-700 shadow-2xl rounded-lg mx-auto text-center py-12 mt-24 rounded-xl">
+  <h1 class="text-blue-400 text-center font-extrabold -mt-3 text-3xl">Sign Up</h1>
+  <div class="container py-5 max-w-md mx-auto">
 
-  <div class="mb-3">
-    <%= f.label :email %><br/>
-    <%= f.text_field :email, class: "form-control", placeholder: "example@email.com" %>
+    <%= form_with model: @user, url: sign_up_path, local: true do |f| %>
+
+      <%= render partial: "shared/form_errors", locals: {f: f} %>
+
+      <div class="mb-4">
+        <%= f.text_field :email, placeholder: "example@email.com", class: "shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.password_field :password, placeholder: "password", class: "shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.password_field :password, placeholder: "password confirmation", class: "shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <%= f.submit "Register", class: "btn-blue" %>
+        <%= link_to "I already have an account.", sign_in_path, class: "inline-block align-baseline font-bold text-sm text-gray-300 hover:text-blue-400" %>
+      </div>
+    <% end %>
+
   </div>
-
-  <div class="mb-3">
-    <%= f.label :password %><br/>
-    <%= f.password_field :password, class: "form-control", placeholder: "password" %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.submit "Get Started", class: "btn btn-primary" %>
-  </div>
-
-<% end %>
+</div>
