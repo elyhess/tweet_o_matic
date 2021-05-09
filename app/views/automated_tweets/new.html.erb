@@ -1,7 +1,6 @@
-<div class="my-2 pb-4">
-  <p class="text-4xl font-bold">Automated Tweets</p>
+<div class="my-2 pb-5">
+  <h3 class="mt-3 text-4xl leading-8 font-medium tracking-tight text-gray-900">Automated Tweets</h3>
 </div>
-
 <%= form_with(model: @automated_tweet, local: true) do |f| %>
 
   <%= render partial: "shared/form_errors", locals: {f: f} %>
