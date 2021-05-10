@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
 
-![Tweet-O-Matic](https://github.com/elyhess/tweet_o_matic/blob/main/header.png)
+![Tweet-O-Matic](header.png)
 <!-- TABLE OF CONTENTS -->
 <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
 <ol>
@@ -20,12 +20,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) Is a twitter bot application inspired by Buffer and HootSuite. After signing in with twitter users can schedule single tweets and set up tweet automations for timed twitter posts. Tweet-O-Matic utilizes ActiveJob to execute tweets at set intervals and ActionCable + Javascript to display progress of tweet automations dynamically. This project is currently on-going and is meant as a play-ground for learning and implementing rails / javascript features.
+[Tweet-O-Matic](https://tweet-o-matic.herokuapp.com/) is a twitter bot application that allows users to connect their Twitter accounts, schedule tweets and set up tweet automations for timed twitter posts. This is a proof of concept project built with the purpose of exploring new technologies. Create an account, connect one or more Twitter profiles to your newly created account and begin tweeting incessantly!
 
-### Key Challenges
-- Building out automated tweet controller and model functionality with ActiveJob integration.
-- Utilizing activeStorage within vanilla javascript to save progress bar state when changing pages / refreshing.
-- Deployment to Heroku utilizing Redis for background job handling.
+### Recent Challenges
+* April 2021
+   - Building out Javascript functionality for dynamic progress bar updates for in progress twitter bots.
+* May 2021
+   - Upgrading from rails 5.2.4.3 -> 6.1.3.1.
+   - Installing Webpack and migrating over existing ActionCable functionality.
+   - Complete re-imagining of UI, Bootstrap -> Tailwind.
+   - Setting up ActionMailer in production for password reset support.
+   - Refactoring vanilla Javascript automated tweet progress bar functionality into Tailwind + ActionCable + Stimulus.js.
+
 
 <!-- PROJECT BOARD -->
 ## Project Board
@@ -34,17 +40,18 @@ Check out the [Project board](https://github.com/elyhess/tweet_o_matic/projects/
 <!-- DATABBASE SCHEMA -->
 ## Database Schema
 
-![Schema](https://github.com/elyhess/tweet_o_matic/blob/main/schema.png)
+![Schema](schema.png)
 
 <!-- BUILT WITH -->
 ## Built With
 
 * [Ruby on Rails](https://rubyonrails.org/)
-* [Postgresql](https://www.postgresql.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Stimulus.js](https://stimulus.hotwire.dev/)
-* [Bootstrap](https://getbootstrap.com/)
+* [Tailwind CSS](https://tailwindcss.com/)
 * [Redis](https://redis.io/)
 * [Sidekiq](https://sidekiq.org/)
+* [Heroku](https://tweet-o-matic.herokuapp.com)
 
 <!-- SETUP INSTRUCTIONS -->
 ## Setup Instructions
