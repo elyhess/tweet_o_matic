@@ -64,6 +64,7 @@ To get a local copy up and running follow these simple steps.
 2. Install dependencies
    ```
    bundle install
+   yarn install
    ```
 3. DB creation/migration
    ```
