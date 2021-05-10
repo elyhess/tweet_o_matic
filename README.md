@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 
 
-![Tweet-O-Matic](header.png)
+![Tweet-O-Matic](banner.png)
 <!-- TABLE OF CONTENTS -->
 <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
 <ol>
