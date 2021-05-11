@@ -66,3 +66,7 @@
 .active-link {
   @apply text-blue-400
 }
+
+.smooth-progress {
+  transition : width 3s ease;
+}
